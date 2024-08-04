@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import preprocessor,helper
+import preprocessor, helper
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -26,7 +26,7 @@ if user_menu == 'Medal Tally':
     selected_year = st.sidebar.selectbox("Select Year",years)
     selected_country = st.sidebar.selectbox("Select Country", country)
 
-    medal_tally = helper.fetch_medal_tally(df,selected_year,selected_country)
+    medal_tally = helper.fetch_medal_tally(df, selected_year, selected_country)
     if selected_year == 'Overall' and selected_country == 'Overall':
         st.title("Overall Tally")
     if selected_year != 'Overall' and selected_country == 'Overall':
@@ -69,7 +69,7 @@ if user_menu == 'Overall Analysis':
         st.header("Athletes")
         st.title(athletes)
 
-    nations_over_time = helper.data_over_time(df,'region')
+    nations_over_time = helper.data_over_time(df, 'region')
     fig = px.line(nations_over_time, x="Edition", y="region")
     st.title("Participating Nations over the years")
     st.plotly_chart(fig)
@@ -97,7 +97,7 @@ if user_menu == 'Overall Analysis':
     sport_list.insert(0,'Overall')
 
     selected_sport = st.selectbox('Select a Sport',sport_list)
-    x = helper.most_successful(df,selected_sport)
+    x = helper.most_successful(df, selected_sport)
     st.table(x)
 
 if user_menu == 'Country Wise Analysis':
@@ -109,19 +109,19 @@ if user_menu == 'Country Wise Analysis':
 
     selected_country = st.sidebar.selectbox('Select a Country',country_list)
 
-    country_df = helper.yearwise_medal_tally(df,selected_country)
+    country_df = helper.yearwise_medal_tally(df, selected_country)
     fig = px.line(country_df, x="Year", y="Medal")
     st.title(selected_country + " Medal Tally over the years")
     st.plotly_chart(fig)
 
     st.title(selected_country+" excels in the following sports")
-    pt = helper.country_event_heatmap(df,selected_country)
+    pt = helper.country_event_heatmap(df, selected_country)
     fig,ax = plt.subplots(figsize = (20,20))
     ax = sns.heatmap(pt,annot=True)
     st.pyplot(fig)
 
     st.title("Top 10 athletes of " + selected_country)
-    top10_df = helper.most_successful_countrywise(df,selected_country)
+    top10_df = helper.most_successful_countrywise(df, selected_country)
     st.table(top10_df)
 
 if user_menu == 'Athlete wise Analysis':
@@ -165,7 +165,7 @@ if user_menu == 'Athlete wise Analysis':
     sport_list.insert(0, 'Overall')
 
     selected_sport = st.selectbox('Select a Sport', sport_list)
-    temp_df = helper.weight_v_height(df,selected_sport)
+    temp_df = helper.weight_v_height(df, selected_sport)
     fig,ax = plt.subplots()
     ax = sns.scatterplot(x=temp_df['Weight'],y=temp_df['Height'],hue=temp_df['Medal'],style=temp_df['Sex'])
     st.pyplot(fig)
