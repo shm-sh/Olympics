@@ -1,8 +1,6 @@
 # Olympics Data Analysis Web App
- <h3 >Data Analysis and Visualization of 120 years of Olympics History through Python, and then deployed it on Render for accessibility.</h3>
- <h5>   Step 1 </h5> <h6> Downloaded the dataset from www.census2011.com </h6>
-# India_Census_2011_Analysis
- <h3 >Analysis of Indian Census 2011 through MSSQL and Power BI to generate insights. </h3>
+ <h3 >Data Analysis and Visualization of 120 years of Olympics History through Python.</h3>
+ <h5>   Step 1 </h5> <h6> Downloaded the dataset from https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results </h6>
  <h5>   Step 1 </h5> <h6> Downloaded the dataset from www.census2011.com </h6>
  <h5>   Step 2 </h5> <h6> Created and Imported Dataset on MSSQL server </h6>
  
